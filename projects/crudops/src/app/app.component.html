@@ -1,0 +1,27 @@
+<h3>CRUD OPERATIONS</h3>
+<table border="1">
+  <tr>
+    <th>ID</th><th>Name</th><th>Gender</th>
+    <th>Age</th><th>Operations</th>
+  </tr>
+  <tr *ngFor="let p of people">
+    <td>{{p.id}}</td><td>{{p.pname}}</td><td>{{p.gender}}</td>
+    <td>{{p.age}}</td>
+    <td><a href="#" (click)="getPersonById(p.id)">SELECT</a> |
+        <a href="#" (click)="deletePersonById(p.id)">DELETE</a>
+    </td>
+  </tr>
+</table> {{msg}} <hr/>
+ID: <input type ="number" [(ngModel)]="p.id" /> <br/>
+Name: <input type="text" [(ngModel)]="p.name" /> <br/>
+Gender: <input type="text" [(ngModel)]="p.gender" /> <br/>
+Age: <input type="number" [(ngModel)]="p.age" /> <br/>
+
+<button (click)="p={}">CLEAR ALL</button>
+<button (click)="addPerson()">ADD PERSON</button>
+
+
+<app-employees></app-employees>
+
+
+

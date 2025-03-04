@@ -1,0 +1,25 @@
+<<h1>Employee CRUD operations on database</h1>
+<table border="1">
+    <tr>
+        <th>ID</th> 
+        <th>Name of the Employee</th> 
+        <th>Job</th> 
+        <th>Salary</th>
+        <th>Opertions</th>
+    </tr>
+    <tr *ngFor="let e of employees">
+        <td>{{e.id}}</td>   
+        <td>{{e.ename}}</td>    
+        <td>{{e.job}}</td> 
+        <td>{{e.salary}}</td>
+        <td><a href="#" (click)="getById(e.id)"> Details</a> 
+            <a href="#" (click)="deleteById(e.id)"> Delete</a></td>
+    </tr>
+</table>  {{msg}} <hr/>
+ID: <input type="number" [(ngModel)]="e.id" />  <br/>
+Name: <input type="text" [(ngModel)]="e.ename" />  <br/>
+Job: <input type="text" [(ngModel)]="e.job" />  <br/>
+Salary: <input type="number" [(ngModel)]="e.salary" />  <br/>
+<button (click)="addEmployee()">Add</button> | 
+<button (click)="updateEmployee()">Edit</button>
+

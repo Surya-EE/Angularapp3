@@ -1,0 +1,155 @@
+<h1>Angular Directives</h1>
+
+
+<input type="checkbox" [(ngModel)]="terms" />
+Terms and Conditions  <br/>
+
+<div *ngIf="terms">
+  <p style="color:GREEN">Thanks for accepting the terms and conditions</p>
+</div>
+
+<div *ngIf="!terms">
+  <p style="color:RED">Must read and accept terms</p>
+</div> <hr/>
+
+<h3>Example1</h3>
+Choose Gender:
+<input type="radio" value ="m" [(ngModel)]="gender" name="gender" />Male
+<input type="radio" value="f" [(ngModel)]="gender" name="gender"/>Female<br/>
+<div *ngIf="gender=='m'">
+  <p style="color:green">Boys office timings from 9 to 6pm</p>
+</div>
+<div *ngIf="gender=='f'">
+  <p style="color:red">Girls office timings are 9 hours</p>
+</div> <hr/>
+
+<h3>List of Fruits</h3>
+<ol>
+  <li *ngFor="let fruit of fruits">
+    {{fruit}}
+  </li>
+</ol>
+
+<h3>List of Vegetables</h3>
+<ul>
+  <li *ngFor="let v of vegetables">
+    {{v}}
+  </li>
+</ul> <hr/>
+
+<h3>Button Click List</h3>
+<button (click)="getItems('fruits')">Show List of Fruits</button>
+<button (click)="getItems('vegetables')">Show List of Vegetables</button><br/>
+<h3>{{heading}}</h3>
+<ol>
+  <li *ngFor="let item of items">
+    {{item}}
+  </li>
+</ol>
+<p>{{msg}}</p> <hr/>
+
+<h3>Display List</h3>
+<table border="1">
+<tr>
+  <th>S.No</th>
+  <th>Name of the Person</th>
+  <th>Length</th>
+  <th>Upper Case</th>
+  <th>Lower Case</th>
+</tr>
+<tr *ngFor="let name of fullName;let i=index">
+  <td>{{i}}</td>
+  <td>{{name}}</td>
+  <td>{{name.length}}</td>
+  <td>{{name.toUpperCase()}}</td>
+  <td>{{name.toLowerCase()}}</td>
+</tr>
+</table>
+<hr/>
+
+
+<h3>Directions</h3>
+Enter the Directions:
+<input type="number" [(ngModel)]="direction" />
+<div [ngSwitch]="direction">
+  <div *ngSwitchCase="1">North</div>
+  <div *ngSwitchCase="2">South</div>
+  <div *ngSwitchCase="3">East</div>
+  <div *ngSwitchCase="4">West</div>
+</div>
+<hr/>
+
+<h3>Structural Derivative ngSwitch</h3>
+Choose Country:
+<select [(ngModel)]='country'>
+  <option></option>
+  <option value="India">India</option>
+  <option value="USA">USA</option>
+  <option value="UK">UK</option>
+  <option value="AUS">AUS</option>
+  <option value="NZ">NZ</option>
+</select>
+
+<div [ngSwitch]='country'>
+  <p *ngSwitchCase="'India'"> Details abt India </p>
+  <p *ngSwitchCase="'USA'"> Details abt USA </p>
+  <p *ngSwitchCase="'UK'"> Details abt UK </p>
+  <p *ngSwitchCase="'AUS'"> Details abt AUS </p>
+  <p *ngSwitchCase="'NZ'"> Details abt NZ </p>
+</div>
+<hr/>
+
+{{title}}
+<h3>List of Fruits</h3>
+<ol>
+  <li *ngFor="let f of fruits1">{{f}}</li>
+</ol>
+
+<h3>ngSwitch Demo</h3>
+<div [ngSwitch]='getHour()'>
+  <p *ngSwitchCase="5">Get Ready</p>
+  <p *ngSwitchCase="10">Get Morning</p>
+  <p *ngSwitchCase="13">Get Afternoon</p>
+  <p *ngSwitchCase="13">Get Evening</p>
+</div>
+
+<h3>Structural Directives</h3>
+<button *ngFor='let o of operations' value ={{o}} (click)='msg1=o'>{{o}}</button>
+
+{{msg1}}
+<hr/>
+
+<h3>Array CRUD</h3>
+<table border="1">
+  <tr>
+    <th>Index</th>
+    <th>Fruits</th>
+    <th>Operations</th>
+  </tr>
+  <tr *ngFor="let f of fruits2;let i=index">
+    <td>{{i}}</td>
+    <td>{{f}}</td>
+    <td><button (click)="Select(i)">Select</button></td>
+  </tr>
+</table>
+{{msg2}}
+
+<h3>CRUD OPERATIONS</h3>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Age</th>
+  </tr>
+  <tr *ngFor="let p of people">
+    <td>{{p.id}}</td>
+    <td>{{p.pname}}</td>
+    <td>{{p.gender}}</td>
+    <td>{{p.age}}</td>
+  </tr>
+</table>
+ID:{{p.id}}<br/>
+Name:{{p.pname}}<br/>
+Gender:{{p.gender}}<br/>
+Age:{{p.age}}
